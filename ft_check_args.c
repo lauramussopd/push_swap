@@ -9,72 +9,6 @@
 //check if is alrealdy sorted
 
 
-long	ft_atol(const char *str)
-{
-	int		i;
-	int		sign;
-	long	result;
-
-	i = 0;
-	sign = 1;
-	result = 0;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-')
-	{
-		sign = -1;
-		i++;
-	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10;
-		result = result + str[i] - '0';
-		i++;
-		// printf("result %ld\n", result);
-	}
-	return (result * sign);
-}
-
-
-int	ft_isdigit(int a)
-{
-	if (a >= '0' && a <= '9')
-		return (1);
-	return (0);
-}
-
-int ft_strlen(char *str)
-{
-    int i;
-
-    i = 0;
-    while(str[i])
-    {
-        i++;
-    }
-    return (i);
-}
-
-void	ft_print_error()
-{
-	write(1, "Error\n", 6);
-}
-
-int	ft_strcmp(char *s1, char *s2)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0')
-		i++;
-	if (s1[i] == s2[i])
-		return (0);
-	else
-		return (s1[i] - s2[i]);
-}
-
 int	ft_check_duplicates(int argc, char *argv[])
 {
 	int i;
@@ -110,7 +44,6 @@ int  is_number_and_int(char *argv[])
         j = 0;
         if (ft_strlen(argv[i]) == 0)
 			return(1);
-           // printf("There's nothing.\n");
         if ((argv[i][j] == '-' || argv[i][j] == '+') && argv[i][j + 1])
 			j++;
             while (j < ft_strlen(argv[i]))
@@ -120,36 +53,54 @@ int  is_number_and_int(char *argv[])
                 j++;
             }
 			num = ft_atol(argv[i]);
-			// printf("num %ld\n", num);
 			if (num < INT_MIN || num > INT_MAX)
 				return(1);
 		i++;
     }
     return (0);
 }
-
-
-int main(int argc, char *argv[]) //is gonna be ft_check_args
+int ft_check_args(int argc, char *argv[]) 
 {
     if (ft_check_duplicates(argc, argv)) 
     {
         ft_print_error();
-        printf("duplicated.\n");
+        ft_printf("duplicated.\n");
+		return(1);
     } 
     else if (is_number_and_int(argv))
     {
         ft_print_error();
-        printf("not int.\n");
+        ft_printf("not int.\n");
+		return(1);
     }
     else {
-        printf("No duplicates found.\n");
+        ft_printf("input args, correct! no duplicates, no letters\n");
     }
     return 0;
 }
-/*
 
+int is_ordered(int argc, char *argv[])
+{
+	if (argc < 3)
+	{
+		return (1);
+	}
 
+	int i;
 
-//	num = ft_atol(*argv[i])
+	i = 1;
 
-*/
+	while ( i < argc - 1)
+	{
+		int current = ft_atol(argv[i]);
+		int following = ft_atol(argv[i + 1]);
+		if (current > following)
+		{
+			ft_printf("arguments are NOT ordered\n");
+			return (1);
+		}
+		i++;
+	}
+	ft_printf("arguments are ordered\n");
+	return (0); //arguments are ordered
+}
