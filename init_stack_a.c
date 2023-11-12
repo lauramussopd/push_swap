@@ -1,23 +1,37 @@
 #include "push_swap.h"
 
-t_stack  *new_node(int value, t_stack *list)
+t_stack *create_node(t_stack *first_list, int num)
 {
-    t_stack *node = (t_stack *)malloc(sizeof(t_stack));
+    t_stack *node;
+    t_stack *tmp;
 
-    node->value = value;
-    node->index = -1;
-    node->next = list;//me dice q quin apunta (al anterios)
+    node = malloc(sizeof(t_stack)); //create the empty box
+    if(!node)
+        return (NULL);
+    node->value = num; //accedo a value di node e gli assegno num
+    node->next = NULL;
+    tmp = first_list;
+    while (tmp->next != NULL)
+        tmp = tmp->next;
+    tmp->next = node;
+    return (node);
 }
 
-t_stack   *init_stack_a(char **argv)
+t_stack   *init_stack_a(char *argv[])
 {
-    t_stack *list;
-    int i = 0;
+    int i = 2;
+    t_stack *first_list; //non deve cambiare quando creo la lista
 
-    list = NULL;
-    while (argv[i])
+    first_list = malloc(sizeof(t_stack));
+    if(!first_list)
+        return (NULL);
+    first_list->value = ft_atol(argv[1]);
+    first_list->next = NULL;
+    while(argv[i])
+    {
+        if (!create_node(first_list, ft_atol(argv[i])))
+            return (NULL);
         i++;
-    while (--i)
-        list = new_node(ft_atol(argv[i]), list); //tengo la referencia al ultimo que ouse
-    return (list);
+    }
+    return (first_list);
 }

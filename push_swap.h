@@ -9,11 +9,15 @@
 typedef struct s_stack
 {
 	int		value;
-	int		index;
 	struct s_stack *next;
-	struct s_stack *prev;
 } t_stack;
 
+/*
+typedef struct s_list
+{
+	t_stack	*first;
+} t_list;
+*/
 
 /*UTILS*/
 
@@ -32,7 +36,8 @@ int ft_check_args(int argc, char *argv[]);
 int is_ordered(int argc, char *argv[]);
 
 /*INIT STACK*/
-void    init_stack_a(t_stack **a, char **argv);
+t_stack   *init_stack_a(char *argv[]);
+t_stack *create_node(t_stack *first_list, int num);
 
 
 
