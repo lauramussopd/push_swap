@@ -10,13 +10,19 @@ int main (int argc, char *argv[])
     if(argc == 1 || (argc == 2 && argv[1][0] == '\0')) // i have two input but hte first char of the input is zero
         return(1);
     ft_check_args(argc, argv);
-    is_ordered(argc, argv);
+    if(is_ordered(argc, argv))
+    {
+        return (1);
+    }
+    else 
+    {
     a = init_stack_a(argv);
     t_stack *aux = a;
     while(aux != NULL)
     {
         ft_printf("value: %d\n", aux->value);
         aux = aux->next;
+    }
     }
     return 0;
 }

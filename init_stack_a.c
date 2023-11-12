@@ -17,7 +17,7 @@ t_stack *create_node(t_stack *first_list, int num)
     return (node);
 }
 
-t_stack   *init_stack_a(char *argv[])
+t_stack   *init_stack_a(char *argv[]) //relaziono un nodo all'altro
 {
     int i = 2;
     t_stack *first_list; //non deve cambiare quando creo la lista

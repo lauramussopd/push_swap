@@ -36,8 +36,8 @@ int ft_check_args(int argc, char *argv[]);
 int is_ordered(int argc, char *argv[]);
 
 /*INIT STACK*/
-t_stack   *init_stack_a(char *argv[]);
-t_stack *create_node(t_stack *first_list, int num);
+t_stack		*init_stack_a(char *argv[]);
+t_stack		*create_node(t_stack *first_list, int num);
 
 
 
