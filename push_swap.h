@@ -6,18 +6,18 @@
 #include "./printf/ft_printf.h"
 
 
-typedef struct s_stack
+typedef struct s_node
 {
 	int		value; //dato
-	struct s_stack *next;
-} t_stack;
+	struct s_node *next;
+} t_node; //ESTA ES EL NODO, LA STRCUT CQUE COMPONE LA LISTA
 
-/*
+
 typedef struct s_list
 {
-	t_stack	*first;
+	t_node	*first;
 } t_list;
-*/
+
 
 /*UTILS*/
 
@@ -36,11 +36,13 @@ int ft_check_args(int argc, char *argv[]);
 int is_ordered(int argc, char *argv[]);
 
 /*INIT STACK*/
-t_stack		*init_stack_a(char *argv[]);
-t_stack		*create_node(t_stack *first_list, int num);
+t_list		*init_stack_a(char *argv[]);
+t_node		*create_node(t_node *first_list, int num);
 
 
 
+/*MOVEMENTS*/
+void    swap(t_list *stack);
 
 
 //handle errors

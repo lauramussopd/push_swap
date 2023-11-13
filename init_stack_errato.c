@@ -1,13 +1,13 @@
 #include "push_swap.h"
 
-t_node *create_node(t_node *first_list, int num) 
+t_stack *create_node(t_stack *first_list, int num) 
 //crea un nuovo nodo nella pisla e lo aggiunge alla lista
 //first_list e' il puntatore alla testa della lista
 {
-    t_node *node;
-    t_node *tmp; //utilizzato come puntatore temporaneo per attraversare la lista fino all'ultimo nodo
+    t_stack *node;
+    t_stack *tmp; //utilizzato come puntatore temporaneo per attraversare la lista fino all'ultimo nodo
 
-    node = malloc(sizeof(t_node)); //create the empty box
+    node = malloc(sizeof(t_stack)); //create the empty box
     if(!node)
         return (NULL);
     node->value = num; //accedo a value di node e gli assegno num
@@ -25,7 +25,7 @@ t_list   *init_stack_a(char *argv[]) //relaziono un nodo all'altro
     t_node *first_list; //non deve cambiare quando creo la lista
     t_list  *head;
 
-    first_list = malloc(sizeof(t_node));
+    first_list = malloc(sizeof(t_stack));
     head = malloc(sizeof(t_list));
     if(!first_list)
         return (NULL);

@@ -2,8 +2,8 @@
 
 int main (int argc, char *argv[])
 {
-    t_stack *a;
-    t_stack *b;
+    t_list *a;
+    t_list *b;
 
     a = NULL;
     b = NULL;
@@ -17,7 +17,15 @@ int main (int argc, char *argv[])
     else 
     {
     a = init_stack_a(argv);
-    t_stack *aux = a;
+    b = malloc(sizeof(t_list));
+    t_node *aux = a->first;
+    while(aux != NULL)
+    {
+        ft_printf("value: %d\n", aux->value);
+        aux = aux->next;
+    }
+    swap(a);
+    aux = a->first; //reiniecializo el a
     while(aux != NULL)
     {
         ft_printf("value: %d\n", aux->value);
