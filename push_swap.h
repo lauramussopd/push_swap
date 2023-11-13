@@ -8,7 +8,7 @@
 
 typedef struct s_stack
 {
-	int		value;
+	int		value; //dato
 	struct s_stack *next;
 } t_stack;
 
