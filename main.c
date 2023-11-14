@@ -31,11 +31,11 @@ int main (int argc, char *argv[])
         //     ft_printf("value: %d\n", aux->value);
         //     aux = aux->next;
         // }
-        rotate(a);
+        reverse_rotate(a);
         aux = a->first; //reiniecializo el a
         while(aux != NULL)
         {
-            ft_printf("ROTATE value: %d\n", aux->value);
+            ft_printf("Reverse rOTATE value: %d\n", aux->value);
             aux = aux->next;
         }
 

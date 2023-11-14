@@ -111,3 +111,24 @@ void    rotate(t_list *stack)
 
         }
 }
+
+void    reverse_rotate(t_list *stack)
+{
+    t_node *node1;
+    t_node *before_last;
+    t_node *last;
+
+    if (stack_size(stack) > 1)
+    {   
+        node1 = stack->first; //me guardo la cabeza   5
+        before_last = node1;
+        while (before_last->next->next) //null
+        {
+            before_last = before_last->next; //anteultimo
+        }
+        last = before_last->next; //guardo dentro de aux2
+        before_last->next = NULL; //9
+        stack->first = last; /// 15
+        last->next = node1;
+    }
+}
