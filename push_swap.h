@@ -42,9 +42,21 @@ t_node		*create_node(t_node *first_list, int num);
 
 
 /*MOVEMENTS*/
+
+int    stack_size(t_list *stack);
+
 void    swap(t_list *stack);
+void    push(t_list *stack_a, t_list *stack_b);
+
+void    swap_a(t_list *stack);
+void    swap_b(t_list *stack);
+void    swap_both(t_list *stack_a, t_list *stack_b);
+
+void    push_a(t_list *stack_a, t_list *stack_b);
+void    push_b(t_list *stack_a, t_list *stack_b);
 
 
+void    rotate(t_list *stack);
 //handle errors
 
 //stack initiation

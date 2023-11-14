@@ -16,21 +16,43 @@ int main (int argc, char *argv[])
     }
     else 
     {
-    a = init_stack_a(argv);
-    b = malloc(sizeof(t_list));
-    t_node *aux = a->first;
-    while(aux != NULL)
-    {
-        ft_printf("value: %d\n", aux->value);
-        aux = aux->next;
-    }
-    swap(a);
-    aux = a->first; //reiniecializo el a
-    while(aux != NULL)
-    {
-        ft_printf("value: %d\n", aux->value);
-        aux = aux->next;
-    }
+        a = init_stack_a(argv);
+        b = malloc(sizeof(t_list));
+        t_node *aux = a->first;
+        while(aux != NULL)
+        {
+            ft_printf("value: %d\n", aux->value);
+            aux = aux->next;
+        }
+        // swap_a(a);
+        // aux = a->first; //reiniecializo el a
+        // while(aux != NULL)
+        // {
+        //     ft_printf("value: %d\n", aux->value);
+        //     aux = aux->next;
+        // }
+        rotate(a);
+        aux = a->first; //reiniecializo el a
+        while(aux != NULL)
+        {
+            ft_printf("ROTATE value: %d\n", aux->value);
+            aux = aux->next;
+        }
+
+
+        // push_a(a, b);
+        // aux = a->first;
+        // while(aux != NULL)
+        // {
+        //     ft_printf("stack a value: %d\n", aux->value);
+        //     aux = aux->next;
+        // }
+        // aux = b->first;
+        // while(aux != NULL)
+        // {
+        //     ft_printf("stack b value: %d\n", aux->value);
+        //     aux = aux->next;
+        // }
     }
     return 0;
 }
