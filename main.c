@@ -1,58 +1,42 @@
+
 #include "push_swap.h"
 
-int main (int argc, char *argv[])
+/*--------CREA Y INICIALIZA stack_a CON LOS ARGUMENTOS DE ENTRADA--------*/
+
+static void	init_a(int argc, char **argv, t_list **a)
 {
-    t_list *a;
-    t_list *b;
+	int		num;
+	int		i;
+	t_list	*node;
 
-    a = NULL;
-    b = NULL;
-    if(argc == 1 || (argc == 2 && argv[1][0] == '\0')) // i have two input but hte first char of the input is zero
-        return(1);
-    ft_check_args(argc, argv);
-    if(is_ordered(argc, argv))
-    {
-        return (1);
-    }
-    else 
-    {
-        a = init_stack_a(argv);
-        b = malloc(sizeof(t_list));
-        t_node *aux = a->first;
-        while(aux != NULL)
-        {
-            ft_printf("value: %d\n", aux->value);
-            aux = aux->next;
-        }
-        // swap_a(a);
-        // aux = a->first; //reiniecializo el a
-        // while(aux != NULL)
-        // {
-        //     ft_printf("value: %d\n", aux->value);
-        //     aux = aux->next;
-        // }
-        reverse_rotate(a);
-        aux = a->first; //reiniecializo el a
-        while(aux != NULL)
-        {
-            ft_printf("Reverse rOTATE value: %d\n", aux->value);
-            aux = aux->next;
-        }
+	i = 1;
+	while (i < argc)
+	{
+		num = my_atoi(argv[i], a);
+		node = new_node(&num);
+		add_last(a, node);
+		i++;
+	}
+}
 
+int	main(int argc, char **argv)
+{
+	t_list	*a;
+	t_list	*b;
 
-        // push_a(a, b);
-        // aux = a->first;
-        // while(aux != NULL)
-        // {
-        //     ft_printf("stack a value: %d\n", aux->value);
-        //     aux = aux->next;
-        // }
-        // aux = b->first;
-        // while(aux != NULL)
-        // {
-        //     ft_printf("stack b value: %d\n", aux->value);
-        //     aux = aux->next;
-        // }
-    }
-    return 0;
+	a = NULL;
+	b = NULL;
+	if (argc < 2)
+		return (0);
+	init_a(argc, argv, &a);
+	if (check_dup(a) == -1)
+	{
+		cleaner(&a);
+		return (write(2, "Error\n", 6));
+	}
+	if (check_order(a) == 1)
+		select_alg(&a, &b);
+	cleaner(&a);
+	cleaner(&b);
+	return (0);
 }
