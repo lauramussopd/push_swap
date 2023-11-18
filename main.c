@@ -59,11 +59,15 @@ int	main(int argc, char **argv)
 	 {
 	 	printf("not orded\n");
 		//select_alg funzione che ti dice che algoritmo scegliere
-		swap_a(&a);
+		//swap_a(&a);
+		//printf("value en a%d\n", a->value);
+		//push(&a, &b);
+		rotate(&a);
 		while (a != NULL)
 		{
 
-			printf("value %d\n", a->value);
+			printf("value en a%d\n", a->value);
+			//printf("value en b%d\n", b->value);
 			a = a->next;
 		}
 	 }

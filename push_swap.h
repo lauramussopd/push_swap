@@ -28,4 +28,12 @@ void swap_stack(t_list **lst);
 void swap_a(t_list **a);
 void swap_b(t_list **b);
 
+void	push(t_list **src, t_list **dest);
+void push_a(t_list **stack_a, t_list **stack_b);
+void push_b(t_list **stack_a, t_list **stack_b);
+
+void    rotate(t_list **lst);
+void    rotate_a(t_list **a);
+void    rotate_b(t_list **b);
+
 #endif
