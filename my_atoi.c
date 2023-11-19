@@ -16,7 +16,7 @@ int	my_atoi(const char *str)
 		if (str[i++] == '-')
 			flag = -1;
 	if (!(str[i] >= '0' && str[i] <= '9'))
-		return (0);
+		ft_error(*str);
 	while (str[i] >= '0' && str[i] <= '9')
 		nbr = nbr * 10 + (str[i++] - 48);
 	if (str[i] != '\0')

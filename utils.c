@@ -1,11 +1,6 @@
 #include "push_swap.h"
 
-/*void	ft_error(t_list **lst)
-{
-	write(2, "Error\n", 6);
-	//cleaner(lst);
-	exit (EXIT_FAILURE);
-}*/
+
 
 
 

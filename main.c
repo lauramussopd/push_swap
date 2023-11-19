@@ -12,7 +12,9 @@ static void	init_stacka(int argc, char **argv, t_list **a)
 	i = 1;
 	while (i < argc)
 	{
-		num = my_atoi(argv[i]); //converte la stringa in un numero intero esalva il risultaato in num
+		//num = my_atoi(argv[i]); //converte la stringa in un numero intero esalva il risultaato in num
+		
+		num = ft_atoi(argv[i]);
 		node = create_node(&num);
 		add_last(a, node);
 		i++;

@@ -15,11 +15,11 @@ typedef struct s_list
 
 /*UTILS*/
 
-int		my_atoi(const char *str);
+//int		my_atoi(const char *str);
+int	ft_atoi(const char *str);
 void	add_last(t_list **lst, t_list *node);
 t_list	*create_node(int *value);
 t_list	*find_last(t_list *lst);
-//void	ft_error(t_list **lst);
 int check_duplicate(t_list *lst);
 int check_order(t_list *lst);
 
