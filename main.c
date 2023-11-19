@@ -64,7 +64,7 @@ int	main(int argc, char **argv)
 		//push(&a, &b);
 		//rotate(&a);
 		//reverse_rotate(&a);
-		three_num(&a);
+		sort_three(&a);
 		while (a != NULL)
 		{
 			

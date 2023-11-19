@@ -21,3 +21,47 @@ void	ft_error(t_list **lst)
 	exit (EXIT_FAILURE);
 }
 
+
+
+int	find_min(t_list *lst)
+{
+	int position;
+	int i = 0;
+	int min = (lst->value);
+
+	position = 0;
+
+	while(lst != NULL)
+	{
+		if (lst->value < min)
+		{
+			min = lst->value;
+			position = i;
+		}
+		lst = lst->next;
+		i++;
+	}
+	return(position);
+}
+
+void	rotate_min(t_list **lst, int size)
+{
+	int i = 0;
+
+	while((*lst)->value != 0)
+	{
+		rotate(lst);
+		i++;
+		if (i > (size / 2))
+		{
+			rra(lst);
+			write(1, "rra\n", 4);
+		}
+		else
+		{
+			rotate_a(lst);
+		}
+	}
+}
+
+

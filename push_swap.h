@@ -44,6 +44,12 @@ void    rrb(t_list **b);
 /*SORT*/
 
 void two_num(t_list **lst);
-void three_num(t_list **lst);
+void sort_three(t_list **lst);
+void sort_four(t_list **stack_a, t_list **stack_b);
+
+/*UTILS*/
+
+void	rotate_min(t_list **lst, int size);
+int	find_min(t_list **lst);
 
 #endif
