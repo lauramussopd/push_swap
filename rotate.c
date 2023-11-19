@@ -29,5 +29,5 @@ void    rotate_a(t_list **a)
 void    rotate_b(t_list **b)
 {
     rotate(b);
-    write(1, "ra\n", 3);
+    write(1, "rb\n", 3);
 }

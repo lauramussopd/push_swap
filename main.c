@@ -12,7 +12,7 @@ static void	init_stacka(int argc, char **argv, t_list **a)
 	i = 1;
 	while (i < argc)
 	{
-		num = my_atoi(argv[i], a); //converte la stringa in un numero intero esalva il risultaato in num
+		num = my_atoi(argv[i]); //converte la stringa in un numero intero esalva il risultaato in num
 		node = create_node(&num);
 		add_last(a, node);
 		i++;
@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 	 if (check_duplicate(a) == -1)
 	 {
 	 	printf("yes duplicates\n");
-		ft_error(&a);
+		//ft_error(&a);
 	 }
 
 ///////----------------------------
@@ -64,14 +64,15 @@ int	main(int argc, char **argv)
 		//push(&a, &b);
 		//rotate(&a);
 		//reverse_rotate(&a);
-		sort_three(&a);
-		while (a != NULL)
-		{
-			
-			printf("value en a %d\n", a->value);
-			//printf("value en b%d\n", b->value);
-			a = a->next;
-		}
+		print_lst(a, "stack a antes de ordenar");
+		if (stack_size(a) == 3)
+			sort_three(&a);
+		if (stack_size(a ) == 4)
+			sort_four(&a, &b);
+		if (stack_size(a) == 5)
+			sort_five(&a, &b);
+		print_lst(a, "stack a despue de ordenar");
+		print_lst(b, "stack b despue de ordenar");
 	 }
 ///////*--------------------------
 

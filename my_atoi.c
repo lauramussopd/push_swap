@@ -3,7 +3,7 @@
 
 #include "push_swap.h"
 
-int	my_atoi(const char *str, t_list **lst)
+int	my_atoi(const char *str)
 {
 	int			i;
 	long int	nbr;
@@ -16,13 +16,13 @@ int	my_atoi(const char *str, t_list **lst)
 		if (str[i++] == '-')
 			flag = -1;
 	if (!(str[i] >= '0' && str[i] <= '9'))
-		ft_error(lst);
+		return (0);
 	while (str[i] >= '0' && str[i] <= '9')
 		nbr = nbr * 10 + (str[i++] - 48);
 	if (str[i] != '\0')
-		ft_error(lst);
+		return (0);
 	nbr = flag * nbr;
 	if ((nbr) < INT_MIN || nbr > INT_MAX)
-		ft_error(lst);
+		return (0);
 	return (nbr);
 }
