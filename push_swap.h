@@ -24,7 +24,7 @@ int check_duplicate(t_list *lst);
 int check_order(t_list *lst);
 
 /*MOVEMENTS*/
-void swap_stack(t_list **lst);
+void swap(t_list **lst);
 void swap_a(t_list **a);
 void swap_b(t_list **b);
 
@@ -35,5 +35,15 @@ void push_b(t_list **stack_a, t_list **stack_b);
 void    rotate(t_list **lst);
 void    rotate_a(t_list **a);
 void    rotate_b(t_list **b);
+
+void    reverse_rotate(t_list **lst);
+void    rra(t_list **a);
+void    rrb(t_list **b);
+
+
+/*SORT*/
+
+void two_num(t_list **lst);
+void three_num(t_list **lst);
 
 #endif

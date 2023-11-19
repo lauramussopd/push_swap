@@ -5,7 +5,7 @@
 
 static void	init_stacka(int argc, char **argv, t_list **a)
 {
-	int		num;
+	int		num;	
 	int		i;
 	t_list	*node; //puntatore di tipo t_list che punta alla struttura
 
@@ -59,14 +59,16 @@ int	main(int argc, char **argv)
 	 {
 	 	printf("not orded\n");
 		//select_alg funzione che ti dice che algoritmo scegliere
-		//swap_a(&a);
+		//swap(&a);
 		//printf("value en a%d\n", a->value);
 		//push(&a, &b);
-		rotate(&a);
+		//rotate(&a);
+		//reverse_rotate(&a);
+		three_num(&a);
 		while (a != NULL)
 		{
-
-			printf("value en a%d\n", a->value);
+			
+			printf("value en a %d\n", a->value);
 			//printf("value en b%d\n", b->value);
 			a = a->next;
 		}

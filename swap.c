@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void swap_stack(t_list **lst)
+void swap(t_list **lst)
 {
     int	tmp;
 
@@ -13,13 +13,13 @@ void swap_stack(t_list **lst)
 
 void swap_a(t_list **a)
 {
-    swap_stack(a);
+    swap(a);
     write(1, "sa\n", 3);
 }
 
 void swap_b(t_list **b)
 {
-    swap_stack(b);
+    swap(b);
     write(1, "sb\n", 3);
 }
 /*
